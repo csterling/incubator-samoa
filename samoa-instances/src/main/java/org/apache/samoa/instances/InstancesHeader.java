@@ -20,6 +20,12 @@ package org.apache.samoa.instances;
  * #L%
  */
 
+/**
+ * Class for storing the header or context of a data stream. It allows to know
+ * the number of attributes and classes.
+ *
+ * @version $Revision: 7 $
+ */
 public class InstancesHeader extends Instances {
 
   private static final long serialVersionUID = 1L;
