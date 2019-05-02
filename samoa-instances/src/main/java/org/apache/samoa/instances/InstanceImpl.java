@@ -149,7 +149,7 @@ public class InstanceImpl implements MultiLabelInstance {
    */
   @Override
   public void insertAttributeAt(int i) {
-    throw new UnsupportedOperationException("Not yet implemented");
+    this.instanceData.insertAttributeAt(i);
   }
 
   /**

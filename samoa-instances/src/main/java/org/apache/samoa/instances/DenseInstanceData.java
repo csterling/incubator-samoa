@@ -20,6 +20,9 @@ package org.apache.samoa.instances;
  * #L%
  */
 
+/**
+ * The Class DenseInstanceData.
+ */
 public class DenseInstanceData implements InstanceData{
 
   /**
@@ -160,6 +163,22 @@ public class DenseInstanceData implements InstanceData{
           attributeValues.length - (index + 1));
     }
     attributeValues = newValues;
+  }
+
+  @Override
+  public void insertAttributeAt(int index) {
+    if ((index< 0) || (index > numAttributes())) {
+      throw new IllegalArgumentException("Can't insert attribute: index out "
+                    + "of range");
+    }
+    double[] newValues = new double[attributeValues.length + 1];
+
+    System.arraycopy(attributeValues , 0, newValues, 0, index);
+    newValues[index] = Double.NaN; //Missing Value
+    System.arraycopy(attributeValues , index, newValues, index + 1,
+            attributeValues .length - index);
+    attributeValues  = newValues;
+
   }
 
   @Override

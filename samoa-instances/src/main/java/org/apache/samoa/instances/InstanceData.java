@@ -22,6 +22,11 @@ package org.apache.samoa.instances;
 
 import java.io.Serializable;
 
+/**
+ * The Interface InstanceData.
+ *
+ * @author abifet
+ */
 public interface InstanceData extends Serializable {
 
   /**
@@ -101,6 +106,15 @@ public interface InstanceData extends Serializable {
    */
   public void deleteAttributeAt(int index);
 
+  /**
+   * Inserts an attribute.
+   *
+   * @param index the index
+   */
+  public default void insertAttributeAt(int index) {
+    throw new UnsupportedOperationException("public void " + this.getClass().getCanonicalName() + ".insertAttributeAt(int index)");
+  }
+    
   /**
    * Produces a shallow copy of this instance data. 
    * 
