@@ -20,6 +20,11 @@ package org.apache.samoa.instances;
  * #L%
  */
 
+/**
+ * The Class SparseInstance.
+ *
+ * @author abifet
+ */
 public class SparseInstance extends InstanceImpl {
 
   /**
