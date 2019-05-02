@@ -22,6 +22,11 @@ package org.apache.samoa.instances;
 
 import java.io.Serializable;
 
+/**
+ * The Interface Instance.
+ *
+ * @author abifet
+ */
 public interface Instance extends Serializable {
 
   /**
