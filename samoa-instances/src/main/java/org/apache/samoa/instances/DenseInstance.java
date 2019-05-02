@@ -20,6 +20,9 @@ package org.apache.samoa.instances;
  * #L%
  */
 
+/**
+ * The Class DenseInstance.
+ */
 public class DenseInstance extends InstanceImpl {
 
   /**
