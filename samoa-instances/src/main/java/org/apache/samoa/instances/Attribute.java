@@ -24,6 +24,9 @@ import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
+/**
+ * The Class Attribute.
+ */
 public class Attribute implements Serializable {
 
   /** The keyword used to denote the start of an arff attribute declaration */
@@ -243,8 +246,14 @@ public class Attribute implements Serializable {
       }
     }
     Integer val = (Integer) this.valuesStringAttribute.get(value);
+        
+    // in case value was not on a list of unique values of nominal attribute yet, add it
+    // Hence, the list of values can be extended with new entries arriving in the stream
     if (val == null) {
-      return -1;
+      int currentValueCount=this.valuesStringAttribute.size();
+      this.valuesStringAttribute.put(value,currentValueCount);
+      this.attributeValues.add(value);
+      return currentValueCount;
     } else {
       return val.intValue();
     }
