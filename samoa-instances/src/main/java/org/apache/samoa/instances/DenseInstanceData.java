@@ -71,9 +71,6 @@ public class DenseInstanceData implements InstanceData{
    */
   @Override
   public double value(int indexAttribute) {
-	if (this.attributeValues.length <= indexAttribute)
-      return this.attributeValues[this.attributeValues.length-1];
-    
 	return this.attributeValues[indexAttribute];
   }
 
@@ -138,7 +135,7 @@ public class DenseInstanceData implements InstanceData{
    */
   @Override
   public double[] toDoubleArray() {
-    return attributeValues;
+    return attributeValues.clone();
   }
 
   /**
@@ -183,7 +180,7 @@ public class DenseInstanceData implements InstanceData{
 
   @Override
   public InstanceData copy() {
-    return new DenseInstanceData(this.attributeValues);
+    return new DenseInstanceData(this.attributeValues.clone());
   }
 
 }
