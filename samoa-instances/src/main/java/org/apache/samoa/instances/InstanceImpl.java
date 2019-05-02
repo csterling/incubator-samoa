@@ -22,6 +22,11 @@ package org.apache.samoa.instances;
 
 import java.text.SimpleDateFormat;
 
+/**
+ * The Class InstanceImpl.
+ *
+ * @author abifet
+ */
 public class InstanceImpl implements MultiLabelInstance {
 
   /**
@@ -46,7 +51,7 @@ public class InstanceImpl implements MultiLabelInstance {
    */
   public InstanceImpl(InstanceImpl inst) {
     this.weight = inst.weight;
-    this.instanceData = inst.instanceData;
+    this.instanceData = inst.instanceData.copy();
     this.instanceHeader = inst.instanceHeader;
   }
 
@@ -355,7 +360,11 @@ public class InstanceImpl implements MultiLabelInstance {
    */
   @Override
   public void setDataset(Instances dataset) {
-    this.instanceHeader = new InstancesHeader(dataset);
+    if(dataset instanceof InstancesHeader) {
+      this.instanceHeader = (InstancesHeader) dataset;
+    }else {
+      this.instanceHeader = new InstancesHeader(dataset);
+    }
   }
 
   /**
